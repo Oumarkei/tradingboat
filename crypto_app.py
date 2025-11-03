@@ -109,7 +109,7 @@ today_utc_str = pd.Timestamp.now(tz="UTC").strftime("%Y-%m-%d")
 
 # On appelle la grosse fonction UNE SEULE FOIS au chargement
 with st.spinner("Chargement de l'analyse journalière et des indicateurs..."):
-    chart_data, yesterday_close_price, prediction = get_daily_analysis()
+    chart_data, yesterday_close_price, prediction = get_daily_analysis(date_key=today_utc_str)
 
 # On récupère les prédictions
 pred_high, pred_low, pred_close = prediction[0], prediction[1], prediction[2]
