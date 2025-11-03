@@ -1,0 +1,18 @@
+# Environnement virtuel
+tradenv/
+
+# Fichiers cache Python
+__pycache__/
+*.pyc
+
+# Données
+data/
+
+# Notebook d'entraînement
+modeling_ena.ipynb
+
+# Fichiers système Mac
+.DS_Store
+
+# Fichier de secrets (TRÈS IMPORTANT)
+.env
