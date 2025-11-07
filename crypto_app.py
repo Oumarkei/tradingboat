@@ -51,8 +51,8 @@ def get_daily_analysis(date_key):
     Ne retourne plus le prix live.
     """
     try:
-        binance = ccxt.binance()
-        ohlcv = binance.fetch_ohlcv("ENA/USDT", timeframe='1d', limit=130)
+        okx = ccxt.okx()
+        ohlcv = okx.fetch_ohlcv("ENA/USDT", timeframe='1d', limit=500)
         
         data = pd.DataFrame(ohlcv, columns=['date', 'open', 'high', 'low', 'close', 'volume'])
         data["date"] = pd.to_datetime(data["date"], unit="ms")
@@ -90,8 +90,8 @@ def get_live_price():
     Récupère juste le dernier prix tradé. Mis en cache 1 minute.
     """
     try:
-        binance = ccxt.binance()
-        ticker = binance.fetch_ticker("ENA/USDT")
+        okx = ccxt.okx()
+        ticker = okx.fetch_ticker("ENA/USDT")
         return ticker['last']
     except Exception as e:
         st.warning(f"Impossible de rafraîchir le prix live: {e}")
